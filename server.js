@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
   }
 
   //require routes
-// require("./routes/api")(app);
+require("./routes/api")(app);
 
 mongoose.connect("mongodb://localhost/googlebooksdb", { useNewUrlParser: true });
 // If deployed, use the deployed database. Otherwise use the local database
