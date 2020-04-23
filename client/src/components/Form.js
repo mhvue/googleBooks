@@ -4,7 +4,7 @@ import React from "react";
 function Form (){
     return (
     <div>
-        <form className="form">
+        <form className="form text-center">
             <input //title 
                 // value={this.state.firstName}
                 name="title"
