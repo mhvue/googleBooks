@@ -35,5 +35,7 @@ app.delete("/api/deletebook/:id", (req, res) => {
     // console.log("deletinggggggg")
     const bookDelete = req.params._id
     db.Books.deleteOne({"id": bookDelete})
+    .then(db => res.json(db))
+    .catch(error => console.log(error))
 });
 }

@@ -1,5 +1,5 @@
 const express = require("express");
-// const path = require("path");
+const path = require("path");
 const bodyParser= require("body-parser");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
@@ -25,8 +25,13 @@ app.use((req, res, next) => {
     res.send("Welcome to Express");
 });
 
-  app.listen(PORT, function(){
-      console.log(`API Server now listening on PORT ${PORT}!`)
-  });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+
+app.listen(PORT, function(){
+    console.log(`API Server now listening on PORT ${PORT}!`)
+});
 
   module.exports= app;
