@@ -4,7 +4,10 @@ import React from "react";
 function BookCard () {
     return(
         <div>
-            <h1>Books Displays Here</h1>
+            <h1>Results</h1>
+            <div>
+                have books display in a div for now 
+            </div>
         </div>
     )
 
