@@ -1,12 +1,14 @@
 //this will contain reusable code styling for both SAVED and Book Results 
 import React from "react";
+import ViewInfo from "./ViewInfo.js";
 
 function BookCard ({ 
     title,
     authors,
     image,
     description,
-    link
+    link,
+    savedMethod
 }) {
     return(
         <div>
@@ -18,10 +20,12 @@ function BookCard ({
                 <br></br>
                 Img: {image}
                 <br></br>
-                description: {description}
+                Description: {description}
                 <br></br>
-                Link: <a href={link} target= "_blank">Link</a>
-                {/* {link} */}
+                <ViewInfo 
+                    link={link}
+                 />
+                <button onClick={() => savedMethod}>Save</button>
                  </li>
             </ul>
         </div>

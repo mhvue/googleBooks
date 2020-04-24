@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron.js";
 import BookCard  from "../components/BookCard.js";
 import Form from "../components/Form.js";
 import API from "../utils/API"; //this api will connect with our backend and googlebook (poss?)
+import SaveBtn from "../components/SaveBtn.js";
 
 class Books extends Component {
 
@@ -20,6 +21,15 @@ class Books extends Component {
     //     this.handleFormSubmit();
     // }
 
+    //display saved books
+    loadSaved = () => {
+        API.viewSaved()
+        .then(res => this.setState({
+            books: res.data
+        }))
+        .catch(error => console.log(error))
+    }
+
 
     //handleInputChange (input info to searching for a book)
     handleInputChange = event => {
@@ -32,6 +42,18 @@ class Books extends Component {
     }
 
     //handleSave (saved a  book to our db)
+    handleSave = () => {
+        console.log("click")
+        // API.saveBooks({
+        //     title: this.state.books.title,
+        //     author: this.state.books.author,
+        //     image: this.state.books.image,
+        //     description: this.state.books.description,
+        //     link: this.state.books.link
+        // })
+        // .then(res => this.loadSaved())
+        // .catch(err => console.log(err))
+    }
 
     //onsubmit 
     handleFormSubmit = event => {
@@ -49,7 +71,6 @@ class Books extends Component {
         
     }
     
-
 
     render(){
         return(
@@ -88,18 +109,23 @@ class Books extends Component {
                             authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             link={book.volumeInfo.infoLink}
-                            // image={book.volumeInfo.imageLinks}
+                            // image={book.volumeInfo.imageLinks} //img not working.
                             image={book.volumeInfo.image}
-                            
                         />
-                        
                      );
                     })} 
+                    <BookCard
+                    savedMethod={this.handleSave}
+                    />
+
                     </div>) : (
-                    <h1>Sorry..No Results.</h1>
+                    <h3>Nothing to display</h3>
                 )}
                  </div>
 
+                 {/* <SaveBtn
+                        savedMethod={this.handleSave}
+                    /> */}
             </div>
         )
     }

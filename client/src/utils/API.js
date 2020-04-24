@@ -5,15 +5,20 @@ const queryURL= "https://www.googleapis.com/books/v1/volumes?api_key=" + key +"&
 
 
 export default {
-    //get all books. passing in booktitle which will be entered by user
+    //get all books. passing in bookInfo which will be entered by user
     getBooks: function(bookInfo) {
         return axios.get(queryURL + bookInfo)
-    }
-
-    //view a book which will bring user to Google Books, which will be based on that specific id 
-    
+    },    
 
     //save a book to our mongodb 
+    saveBooks: function(bookInfo) {
+        return axios.get("/api/savebook", bookInfo)
+    },
+
+    //view all saved books in db 
+    viewSaved: function(){
+        return axios.get("/api/allbooks")
+    }
 } 
 
 
