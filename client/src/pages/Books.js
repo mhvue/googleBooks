@@ -43,11 +43,13 @@ class Books extends Component {
         API.getBooks(this.state.title || this.state.author)
             .then(res => this.setState({
                 books: res.data.items
-            }, console.log(this.setState)))
+            }))
             .catch(err => console.log(err))
         }
+        
+    }
     
-}
+
 
     render(){
         return(
@@ -75,18 +77,27 @@ class Books extends Component {
                     </form>
                 </Form>
                 <div><h1>Results</h1>
+                {this.state.books.length ? (
+                    <div>
                      {this.state.books.map(book => {
                         return( 
+                        
                          <BookCard 
+                            key={book.volumeInfo.title}
                             title={book.volumeInfo.title}
-                            author={book.volumeInfo.author}
-                            image={book.volumeInfo.image}
+                            authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
-                            link={book.volumeInfo.link}
+                            link={book.volumeInfo.infoLink}
+                            // image={book.volumeInfo.imageLink.map(img=>
+                            //     img.thumbnail)}
+                            
                         />
+                        
                      );
                     })} 
-                    
+                    </div>) : (
+                    <h1>Sorry..No Results.</h1>
+                )}
                  </div>
 
             </div>

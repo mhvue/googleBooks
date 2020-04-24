@@ -3,7 +3,7 @@ import React from "react";
 
 function BookCard ({ 
     title,
-    author,
+    authors,
     image,
     description,
     link
@@ -11,11 +11,11 @@ function BookCard ({
     return(
         <div>
             <div>
-                <p>{title}</p> 
-                <p>{author}</p> 
-                <p>{image}</p> 
-                <p>{description}</p> 
-                <p>{link}</p> 
+                <p>Title: {title}</p> 
+                <p>Author: {authors}</p> 
+                <p>Img: {image}</p> 
+                <p>description: {description}</p> 
+                <p>Link: {link}</p> 
             </div>
         </div>
     )    
