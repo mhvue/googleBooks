@@ -7,15 +7,22 @@ import API from "../utils/API"; //this api will connect with our backend and goo
 class Books extends Component {
 
     state = {
+        books: [],
         title:"",
-        author: ""
-    }
-    //componentDidMount will call for books search 
+        author: "",
+        image: "",
+        description: "",
+        link: ""
 
-    //method here to use of google API and our backend 
+    }
+
+    // componentDidMount() {
+    //     this.handleFormSubmit();
+    // }
+
 
     //handleInputChange (input info to searching for a book)
-    handleInputChange= event => {
+    handleInputChange = event => {
         const {name, value} = event.target
         // console.log(name, value)
 
@@ -23,10 +30,24 @@ class Books extends Component {
             [name]: value
         });
     }
-    
+
     //handleSave (saved a  book to our db)
 
     //onsubmit 
+    handleFormSubmit = event => {
+        event.preventDefault();
+            // API.getBooks(this.state.title)
+            // .then(res => console.log(res.data.items))
+            // .catch(err => console.log(err))
+        if(this.state.title || this.state.author) {
+        API.getBooks(this.state.title || this.state.author)
+            .then(res => this.setState({
+                books: res.data.items
+            }, console.log(this.setState)))
+            .catch(err => console.log(err))
+        }
+    
+}
 
     render(){
         return(
@@ -35,7 +56,7 @@ class Books extends Component {
                 <Form>
                     <form className="form text-center">
                         <input 
-                            // value={this.state.title}
+                            value={this.state.title}
                             name="title"
                             onChange={this.handleInputChange}
                             type="text"
@@ -43,17 +64,31 @@ class Books extends Component {
                         />
                         
                         <input
-                            // value={this.state.author}
-                            name="Author"
+                            value={this.state.author}
+                            name="author"
                             onChange={this.handleInputChange}
                             type="text"
                             placeholder="Author"
                         />
                     
-                        <button>Submit</button>
+                        <button onClick={this.handleFormSubmit}>Submit</button>
                     </form>
                 </Form>
-                <BookCard />
+                <div><h1>Results</h1>
+                     {this.state.books.map(book => {
+                        return( 
+                         <BookCard 
+                            title={book.volumeInfo.title}
+                            author={book.volumeInfo.author}
+                            image={book.volumeInfo.image}
+                            description={book.volumeInfo.description}
+                            link={book.volumeInfo.link}
+                        />
+                     );
+                    })} 
+                    
+                 </div>
+
             </div>
         )
     }
