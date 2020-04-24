@@ -1,6 +1,6 @@
 import React from "react";
 
-function ViewBtn(props) {
+function ViewInfo (props) {
     return (
         <div>
             <span className="view-btn" role="button"  tabIndex="0">
@@ -10,4 +10,4 @@ function ViewBtn(props) {
     )
 }
 
-export default ViewBtn;
+export default ViewInfo;

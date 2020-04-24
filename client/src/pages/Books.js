@@ -3,10 +3,8 @@ import Jumbotron from "../components/Jumbotron.js";
 import BookCard  from "../components/BookCard.js";
 import Form from "../components/Form.js";
 import API from "../utils/API"; //this api will connect with our backend and googlebook (poss?)
-import SaveBtn from "../components/SaveBtn.js";
 
 class Books extends Component {
-
     state = {
         books: [],
         title:"",
@@ -30,12 +28,10 @@ class Books extends Component {
         .catch(error => console.log(error))
     }
 
-
     //handleInputChange (input info to searching for a book)
     handleInputChange = event => {
         const {name, value} = event.target
         // console.log(name, value)
-
         this.setState({
             [name]: value
         });
@@ -44,15 +40,6 @@ class Books extends Component {
     //handleSave (saved a  book to our db)
     handleSave = () => {
         console.log("click")
-        // API.saveBooks({
-        //     title: this.state.books.title,
-        //     author: this.state.books.author,
-        //     image: this.state.books.image,
-        //     description: this.state.books.description,
-        //     link: this.state.books.link
-        // })
-        // .then(res => this.loadSaved())
-        // .catch(err => console.log(err))
     }
 
     //onsubmit 
@@ -68,10 +55,7 @@ class Books extends Component {
             }))
             .catch(err => console.log(err))
         }
-        
     }
-    
-
     render(){
         return(
             <div>
@@ -85,7 +69,6 @@ class Books extends Component {
                             type="text"
                             placeholder="Title"
                         />
-                        
                         <input
                             value={this.state.author}
                             name="author"
@@ -93,7 +76,6 @@ class Books extends Component {
                             type="text"
                             placeholder="Author"
                         />
-                    
                         <button onClick={this.handleFormSubmit}>Submit</button>
                     </form>
                 </Form>
@@ -102,7 +84,6 @@ class Books extends Component {
                     <div>
                      {this.state.books.map(book => {
                         return( 
-                        
                          <BookCard 
                             key={book.volumeInfo.title}
                             title={book.volumeInfo.title}
@@ -111,21 +92,15 @@ class Books extends Component {
                             link={book.volumeInfo.infoLink}
                             // image={book.volumeInfo.imageLinks} //img not working.
                             image={book.volumeInfo.image}
+                            onClick={this.handleSave}
                         />
+                    
                      );
                     })} 
-                    <BookCard
-                    savedMethod={this.handleSave}
-                    />
-
                     </div>) : (
                     <h3>Nothing to display</h3>
                 )}
                  </div>
-
-                 {/* <SaveBtn
-                        savedMethod={this.handleSave}
-                    /> */}
             </div>
         )
     }

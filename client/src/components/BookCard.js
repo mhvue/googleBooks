@@ -8,7 +8,7 @@ function BookCard ({
     image,
     description,
     link,
-    savedMethod
+    onClick
 }) {
     return(
         <div>
@@ -25,7 +25,7 @@ function BookCard ({
                 <ViewInfo 
                     link={link}
                  />
-                <button onClick={() => savedMethod}>Save</button>
+                <button onClick={onClick}>Save</button>
                  </li>
             </ul>
         </div>
