@@ -88,8 +88,8 @@ class Books extends Component {
                             authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             link={book.volumeInfo.infoLink}
-                            // image={book.volumeInfo.imageLink.map(img=>
-                            //     img.thumbnail)}
+                            // image={book.volumeInfo.imageLinks}
+                            image={book.volumeInfo.image}
                             
                         />
                         

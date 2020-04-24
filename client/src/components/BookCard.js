@@ -10,13 +10,20 @@ function BookCard ({
 }) {
     return(
         <div>
-            <div>
-                <p>Title: {title}</p> 
-                <p>Author: {authors}</p> 
-                <p>Img: {image}</p> 
-                <p>description: {description}</p> 
-                <p>Link: {link}</p> 
-            </div>
+            <ul>
+                <li>
+                Title: {title}
+                <br></br>
+                Author: {authors} 
+                <br></br>
+                Img: {image}
+                <br></br>
+                description: {description}
+                <br></br>
+                Link: <a href={link} target= "_blank">Link</a>
+                {/* {link} */}
+                 </li>
+            </ul>
         </div>
     )    
     
