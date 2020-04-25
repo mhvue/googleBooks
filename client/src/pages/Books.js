@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Jumbotron from "../components/Jumbotron.js";
-import BookCard  from "../components/BookCard.js";
+import {BookCard}  from "../components/BookCard.js";
 import Form from "../components/Form.js";
 import API from "../utils/API"; //this api will connect with our backend and googlebook (poss?)
 
@@ -45,7 +45,6 @@ class Books extends Component {
         // console.log(event.currentTarget.parentNode("<ul>"));
         
         // const bookData = event;
-        // console.log("click")
          API.saveBooks({
             title: event.title,
             author: event.author,

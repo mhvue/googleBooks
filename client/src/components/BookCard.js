@@ -4,7 +4,7 @@ import ViewInfo from "./ViewInfo.js";
 
 
 
-function BookCard (props) {
+export function BookCard (props) {
     return(
         <div>
             <ul className="data">
@@ -29,8 +29,6 @@ function BookCard (props) {
     )    
     
 }
-
-
 
 
 
@@ -77,4 +75,4 @@ function BookCard (props) {
     
 // }
 
-export default BookCard;
+// export default BookCard;
