@@ -38,8 +38,24 @@ class Books extends Component {
     }
 
     //handleSave (saved a  book to our db)
-    handleSave = () => {
-        console.log("click")
+    handleSave = event => {
+        // console.log(event)
+        // console.log(event.title)
+        // console.log(event.author, event.image, event.description, event.link)
+        // console.log(event.currentTarget.parentNode("<ul>"));
+        
+        // const bookData = event;
+        // console.log("click")
+         API.saveBooks({
+            title: event.title,
+            author: event.author,
+            image: event.image,
+            description: event.description,
+            link: event.link
+        })
+        .then(res => console.log(res))
+        // .then(res => this.loadSaved())
+        .catch(err => console.log(err))
     }
 
     //onsubmit 
@@ -82,20 +98,22 @@ class Books extends Component {
                 <div><h1>Results</h1>
                 {this.state.books.length ? (
                     <div>
+
                      {this.state.books.map(book => {
-                        return( 
+    
+                        return(
                          <BookCard 
+                            // id= {book.volumeInfo.id}
                             key={book.volumeInfo.title}
                             title={book.volumeInfo.title}
                             authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             link={book.volumeInfo.infoLink}
-                            // image={book.volumeInfo.imageLinks} //img not working.
-                            image={book.volumeInfo.image}
+                            image={book.volumeInfo.image} 
+                            // image={book.volumeInfo.imageLinks.smallThumbnail} 
                             onClick={this.handleSave}
                         />
-                    
-                     );
+                        );
                     })} 
                     </div>) : (
                     <h3>Nothing to display</h3>

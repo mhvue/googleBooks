@@ -12,7 +12,7 @@ export default {
 
     //save a book to our mongodb 
     saveBooks: function(bookInfo) {
-        return axios.get("/api/savebook", bookInfo)
+        return axios.post("/api/savebook", bookInfo)
     },
 
     //view all saved books in db 
