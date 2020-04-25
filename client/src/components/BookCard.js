@@ -9,7 +9,8 @@ import ViewInfo from "./ViewInfo.js";
     image,
     description,
     link,
-    onClick
+    // onClick,
+    button
 }) {
     return(
         <div>
@@ -31,13 +32,14 @@ import ViewInfo from "./ViewInfo.js";
                     link={link}
                  />
             
-                <button onClick={()=> onClick({
+                {/* <button onClick={()=> onClick({
                     title,
                     authors,
                     image,
                     description,
                     link,
-                })}>Save</button>
+                })}>Save</button> */}
+                {button}
 
                  </li>
             </ul>

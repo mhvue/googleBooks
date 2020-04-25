@@ -1,5 +1,3 @@
-//only going to display saved books, the only thing gone is the search form
-
 import React, {Component} from "react";
 import Jumbotron from "../components/Jumbotron.js";
 import {BookCard}  from "../components/BookCard.js";
@@ -9,21 +7,23 @@ import API from "../utils/API";
 
 class SavedBooks extends Component {
 
-    // state = {
-    //     savedBooks:[]
+    state = {
+        savedBooks:[]
        
-    // }
+    }
 
-    // ComponentDidMount() { 
-    //     this.viewAllSaved();
-    // }
+    componentDidMount() { 
+        this.viewAllSaved();
+    }
 
-    // viewAllSaved = () => {
-    //     API.viewSaved()
-    //     .then(res => this.setState({savedBooks: res.data})
-    //     )
-    //     .catch(err => console.log(err))
-    // }
+    viewAllSaved = () => {
+        API.viewSaved()
+        .then(res =>this.setState({savedBooks: res.data})
+        )
+        // .then(res => console.log(res.data))
+        // )
+        .catch(err => console.log(err))
+    }
 
     // handleDelete = (id)=> {
     //     API.deleteBook(id)
@@ -38,8 +38,20 @@ class SavedBooks extends Component {
             <Jumbotron />
             <h1>Saved Books</h1>
             {/* <LayoutCard /> */}
-            <BookCard />
-            <button>Delete</button>
+            {this.state.savedBooks.map(saved => {
+                return (
+                    <BookCard 
+                        title={saved.title}
+                        authors={saved.authors}
+                        image={saved.image}
+                        description={saved.description}
+                        link={saved.link}
+                        button=
+                       {<button>Delete</button>}
+                    />
+                 )
+            })}
+           
         </div>
     )
 

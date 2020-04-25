@@ -16,11 +16,6 @@ class Books extends Component {
 
     }
 
-    // componentDidMount() {
-    //     this.handleFormSubmit();
-    // }
-
-
     //handleInputChange (input info to searching for a book)
     handleInputChange = event => {
         const {name, value} = event.target
@@ -31,21 +26,24 @@ class Books extends Component {
     }
 
     //handleSave (saved a  book to our db)
-    handleSave = event => {
-        // console.log(event.title)
+    handleSave = id => {
+        console.log(id)
+        const selectedBook = this.state.books.filter(id => 
+            console.log(id === books.id))
+            console.log(selectedBook)
         // console.log(event.author, event.image, event.description, event.link)
         
         // const bookData = event;
-         API.saveBooks({
-            title: event.title,
-            author: event.authors,
-            image: event.image,
-            description: event.description,
-            link: event.link
-        })
-        .then(res => console.log(res))
+        //  API.saveBooks({
+        //     title: event.title,
+        //     author: event.authors,
+        //     image: event.image,
+        //     description: event.description,
+        //     link: event.link
+        // })
+        // .then(res => console.log(res))
         // .then(res => this.loadSaved())
-        .catch(err => console.log(err))
+    //     .catch(err => console.log(err))
     }
 
     //onsubmit 
@@ -91,23 +89,23 @@ class Books extends Component {
                     <div>
 
                      {this.state.books.map(book => {
-    
+                        const bookData = book.volumeInfo
                         return(
                          <BookCard 
                             // id= {book.id}
                             key={book.id}
-                            title={book.volumeInfo.title}
-                            authors={book.volumeInfo.authors}
-                            description={book.volumeInfo.description}
-                            link={book.volumeInfo.infoLink}
-                            image={book.volumeInfo.imageLinks.smallThumbnail} 
-                            onClick={this.handleSave}
-                            // button={() => (
-                            // <button
-                            // // onClick={this.handleSave}
-                            // >
-                            //     Save
-                            // </button>)}
+                            title={bookData.title}
+                            authors={bookData.authors}
+                            description={bookData.description}
+                            link={bookData.infoLink}
+                            image={bookData.imageLinks.smallThumbnail} 
+                            // onClick={this.handleSave}
+                            button=
+                            {<button
+                            onClick={() => this.handleSave(book.id)}
+                            >Save
+                            </button>}
+                            
                         />
                         
                         );
