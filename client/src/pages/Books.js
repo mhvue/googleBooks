@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import Jumbotron from "../components/Jumbotron.js";
-import {BookCard}  from "../components/BookCard.js";
+import {BookCard} from "../components/BookCard.js";
+import LayoutCard from "../components/LayoutCard.js";
 import Form from "../components/Form.js";
-import API from "../utils/API"; //this api will connect with our backend and googlebook (poss?)
+import API from "../utils/API.js"; //this api will connect with our backend and googlebook (poss?)
 
 class Books extends Component {
     state = {
@@ -19,14 +20,6 @@ class Books extends Component {
     //     this.handleFormSubmit();
     // }
 
-    //display saved books
-    loadSaved = () => {
-        API.viewSaved()
-        .then(res => this.setState({
-            books: res.data
-        }))
-        .catch(error => console.log(error))
-    }
 
     //handleInputChange (input info to searching for a book)
     handleInputChange = event => {
@@ -39,15 +32,13 @@ class Books extends Component {
 
     //handleSave (saved a  book to our db)
     handleSave = event => {
-        // console.log(event)
         // console.log(event.title)
         // console.log(event.author, event.image, event.description, event.link)
-        // console.log(event.currentTarget.parentNode("<ul>"));
         
         // const bookData = event;
          API.saveBooks({
             title: event.title,
-            author: event.author,
+            author: event.authors,
             image: event.image,
             description: event.description,
             link: event.link
@@ -64,12 +55,13 @@ class Books extends Component {
             // .then(res => console.log(res.data.items))
             // .catch(err => console.log(err))
         if(this.state.title || this.state.author) {
-        API.getBooks(this.state.title || this.state.author)
+        API.getBooks(this.state.title && this.state.author)
             .then(res => this.setState({
                 books: res.data.items
             }))
             .catch(err => console.log(err))
         }
+        //need to put validation on here 
     }
     render(){
         return(
@@ -102,16 +94,22 @@ class Books extends Component {
     
                         return(
                          <BookCard 
-                            // id= {book.volumeInfo.id}
-                            key={book.volumeInfo.title}
+                            // id= {book.id}
+                            key={book.id}
                             title={book.volumeInfo.title}
                             authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             link={book.volumeInfo.infoLink}
-                            image={book.volumeInfo.image} 
-                            // image={book.volumeInfo.imageLinks.smallThumbnail} 
+                            image={book.volumeInfo.imageLinks.smallThumbnail} 
                             onClick={this.handleSave}
+                            // button={() => (
+                            // <button
+                            // // onClick={this.handleSave}
+                            // >
+                            //     Save
+                            // </button>)}
                         />
+                        
                         );
                     })} 
                     </div>) : (

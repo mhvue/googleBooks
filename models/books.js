@@ -6,10 +6,12 @@ const BookSchema = new Schema({
         type: String,
         required: [true, "Book Title Required"]
     },
-    authors: {
+    authors: [
+        {
         type: String, 
         required: [true, "Author is Required"]
-    },
+        }
+    ],
     description:{
         type: String
     },

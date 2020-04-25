@@ -18,6 +18,11 @@ export default {
     //view all saved books in db 
     viewSaved: function(){
         return axios.get("/api/allbooks")
+    },
+
+    //delete a book
+    deleteBook: function (bookId) {
+        return axios.delete("/api/deletebook/" + bookId)
     }
 } 
 

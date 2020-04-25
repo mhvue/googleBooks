@@ -26,7 +26,7 @@ app.post("/api/savebook", (req, res)=>{
     // console.log("postingggg")
 
     db.Books.create(req.body)
-    .then(db => res.json(db))
+    .then(db => console.log(res.json(db)))
     .catch(error => console.log(error))
 });
 

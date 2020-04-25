@@ -1,78 +1,50 @@
 //this will contain reusable code styling for both SAVED and Book Results 
 import React from "react";
+// import SaveBtn from "./LayoutCard.js";
 import ViewInfo from "./ViewInfo.js";
 
-
-
-export function BookCard (props) {
+ export function BookCard ({ 
+    title,
+    authors,
+    image,
+    description,
+    link,
+    onClick
+}) {
     return(
         <div>
             <ul className="data">
                 <li>
-                Title: {props.title}
-                <br></br>
-                Author: {props.authors} 
-                <br></br>
-                Img: {props.image}
-                <br></br>
-                Description: {props.description}
-                <br></br>
-                <ViewInfo 
-                    link={props.link}
+                Title: {title}
+                 <br></br>
+                Author: {authors} 
+                 <br></br>
+                 <img 
+                 src={image}
+                 alt={title}
                  />
-                
-                <button onClick={() => props.onClick(props)} >Save</button>
+                 <br></br>
+                 Description: {description}
+                 <br></br>
+               
+                <ViewInfo 
+                    link={link}
+                 />
+            
+                <button onClick={()=> onClick({
+                    title,
+                    authors,
+                    image,
+                    description,
+                    link,
+                })}>Save</button>
 
                  </li>
             </ul>
+           
         </div>
+         
     )    
-    
+ 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-//  function BookCard ({ 
-//     title,
-//     authors,
-//     image,
-//     description,
-//     link,
-//     onClick,
-// }) {
-//     return(
-//         <div>
-//             <ul className="data">
-//                 <li>
-//                 Title: {title}
-//                 <br></br>
-//                 Author: {authors} 
-//                 <br></br>
-//                 Img: {image}
-//                 <br></br>
-//                 Description: {description}
-//                 <br></br>
-//                 <ViewInfo 
-//                     link={link}
-//                  />
-                
-//                 <button onClick={onClick} >Save</button>
-
-//                  </li>
-//             </ul>
-//         </div>
-//     )    
-    
-// }
-
-// export default BookCard;
