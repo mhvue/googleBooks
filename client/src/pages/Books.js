@@ -57,7 +57,8 @@ class Books extends Component {
             <div>
                 <Jumbotron />
                 <Form>
-                    <form className="form text-center">
+                    <div className="form-group">
+                    <form className="form-group">
                         <input 
                             value={this.state.title}
                             name="title"
@@ -72,12 +73,17 @@ class Books extends Component {
                             type="text"
                             placeholder="Author"
                         />
-                        <button onClick={this.handleFormSubmit}>Submit</button>
+                        <button className="submitBtn"
+                        onClick={this.handleFormSubmit}>Submit</button>
                     </form>
-                </Form>
-                <div><h1>Results</h1>
+                    </div>
+                </Form>   
+                
+                <div>
+                <h1 className="resultHead">Results</h1>
                 {this.state.books.length ? (
-                    <div className="bookInfo-container">
+                    
+                  <div className="bookInfo-container">
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
                         return(
@@ -88,8 +94,9 @@ class Books extends Component {
                             description={bookData.description}
                             link={bookData.infoLink}
                             image={bookData.imageLinks.smallThumbnail} 
-                            button={<button onClick={() => this.handleSave(book.id)}>
-                                    Save
+                            button={<button className="saveBtn"
+                                    onClick={() => this.handleSave(book.id)}>
+                                    Click to save "{bookData.title}"
                                    </button>} 
                         />
                         );

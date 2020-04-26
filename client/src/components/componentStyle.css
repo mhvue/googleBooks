@@ -1,0 +1,18 @@
+ul {
+    list-style-type: none;
+}
+
+
+.saveBtn{
+    background-color: #e77a25;
+    font-weight: bold;
+    border: 1px solid;
+}
+
+.jumbotron {
+    font-family: 'Libre Baskerville', serif;
+}
+
+.navbar {
+    background-color: #036588;
+}

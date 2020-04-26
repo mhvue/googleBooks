@@ -1,5 +1,6 @@
 //reusable code for saved and books search 
 import React from "react";
+import "./componentStyle.css";
 
 function Jumbotron (){
     return(

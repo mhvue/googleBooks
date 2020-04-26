@@ -36,6 +36,7 @@ class SavedBooks extends Component {
     return (
         <div>
             <Jumbotron />
+            
             <h1>Saved Books</h1>
             <div className="bookInfo-container">
             {this.state.savedBooks.map(saved => {
@@ -47,8 +48,9 @@ class SavedBooks extends Component {
                         image={saved.image}
                         description={saved.description}
                         link={saved.link}
-                        button={<button onClick={() => this.handleDelete(saved._id)}>
-                                Delete
+                        button={<button className="deleteBtn"
+                                onClick={() => this.handleDelete(saved._id)}>
+                                Delete "{saved.title}"
                                 </button>} 
                     />
                  )

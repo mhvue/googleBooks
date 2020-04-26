@@ -1,11 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import "./componentStyle.css"
 
 function Nav (){
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="/"><h1>Google Books</h1></Link>
+            <nav className="navbar navbar-expand-lg navbar-light">
+                <Link className="navbar-brand" to="/"><h2>Google Books</h2></Link>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                     <li className="nav-item active">
