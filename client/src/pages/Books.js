@@ -3,7 +3,7 @@ import Jumbotron from "../components/Jumbotron.js";
 import {BookCard} from "../components/BookCard.js";
 import LayoutCard from "../components/LayoutCard.js";
 import Form from "../components/Form.js";
-import API from "../utils/API.js"; //this api will connect with our backend and googlebook (poss?)
+import API from "../utils/API.js"; 
 
 class Books extends Component {
     state = {
@@ -27,23 +27,19 @@ class Books extends Component {
 
     //handleSave (saved a  book to our db)
     handleSave = id => {
-        console.log(id)
-        const selectedBook = this.state.books.filter(id => 
-            console.log(id === books.id))
-            console.log(selectedBook)
-        // console.log(event.author, event.image, event.description, event.link)
-        
-        // const bookData = event;
-        //  API.saveBooks({
-        //     title: event.title,
-        //     author: event.authors,
-        //     image: event.image,
-        //     description: event.description,
-        //     link: event.link
-        // })
-        // .then(res => console.log(res))
-        // .then(res => this.loadSaved())
-    //     .catch(err => console.log(err))
+        // console.log(id)
+        const selectBook = this.state.books.find(book => book.id === id)
+        const selectBookData = selectBook.volumeInfo
+
+         API.saveBooks({
+            title: selectBookData.title,
+            authors: selectBookData.authors,
+            image: selectBookData.imageLinks.smallThumbnail,
+            description: selectBookData.description,
+            link: selectBookData.link
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
 
     //onsubmit 
@@ -87,27 +83,20 @@ class Books extends Component {
                 <div><h1>Results</h1>
                 {this.state.books.length ? (
                     <div>
-
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
                         return(
                          <BookCard 
-                            // id= {book.id}
                             key={book.id}
                             title={bookData.title}
                             authors={bookData.authors}
                             description={bookData.description}
                             link={bookData.infoLink}
                             image={bookData.imageLinks.smallThumbnail} 
-                            // onClick={this.handleSave}
-                            button=
-                            {<button
-                            onClick={() => this.handleSave(book.id)}
-                            >Save
-                            </button>}
-                            
+                            button={<button onClick={() => this.handleSave(book.id)}>
+                                    Save
+                                   </button>} 
                         />
-                        
                         );
                     })} 
                     </div>) : (

@@ -39,8 +39,7 @@ import ViewInfo from "./ViewInfo.js";
                     description,
                     link,
                 })}>Save</button> */}
-                {button}
-
+               {button}
                  </li>
             </ul>
            
