@@ -26,10 +26,10 @@ class SavedBooks extends Component {
 
 
     handleDelete = (id)=> {
-        console.log(id)
-        // API.deleteBook(id)
-        // .then(res => this.viewAllSaved())
-        // .catch(err => console.log(err))
+        // console.log(id)
+        API.deleteBook(id)
+        .then(res => this.viewAllSaved())
+        .catch(err => console.log(err))
     }
 
 
