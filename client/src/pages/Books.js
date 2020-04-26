@@ -1,18 +1,13 @@
 import React, {Component} from "react";
 import Jumbotron from "../components/Jumbotron.js";
-import {BookCard} from "../components/BookCard.js";
-import LayoutCard from "../components/LayoutCard.js";
+import BookCard from "../components/BookCard.js";
 import Form from "../components/Form.js";
 import API from "../utils/API.js"; 
+import "./style.css";
 
 class Books extends Component {
     state = {
-        books: [],
-        title:"",
-        author: "",
-        image: "",
-        description: "",
-        link: ""
+        books: []
 
     }
 
@@ -36,7 +31,7 @@ class Books extends Component {
             authors: selectBookData.authors,
             image: selectBookData.imageLinks.smallThumbnail,
             description: selectBookData.description,
-            link: selectBookData.link
+            link: selectBookData.infoLink
         })
         .then(res => console.log(res))
         .catch(err => console.log(err))
@@ -82,7 +77,7 @@ class Books extends Component {
                 </Form>
                 <div><h1>Results</h1>
                 {this.state.books.length ? (
-                    <div>
+                    <div className="bookInfo-container">
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
                         return(

@@ -1,9 +1,8 @@
 import React, {Component} from "react";
 import Jumbotron from "../components/Jumbotron.js";
-import {BookCard}  from "../components/BookCard.js";
-// import LayoutCard from "../components/LayoutCard.js";
+import BookCard from "../components/BookCard.js";
 import API from "../utils/API";
-
+import "./style.css";
 
 class SavedBooks extends Component {
 
@@ -20,7 +19,7 @@ class SavedBooks extends Component {
         API.viewSaved()
         .then(res =>this.setState({savedBooks: res.data})
         )
-        .then(res =>console.log(res.data))
+        // .then(res =>console.log(res.data))
         .catch(err => console.log(err))
     }
 
@@ -38,7 +37,7 @@ class SavedBooks extends Component {
         <div>
             <Jumbotron />
             <h1>Saved Books</h1>
-            {/* <LayoutCard /> */}
+            <div className="bookInfo-container">
             {this.state.savedBooks.map(saved => {
                 return (
                     <BookCard 
@@ -53,9 +52,11 @@ class SavedBooks extends Component {
                                 </button>} 
                     />
                  )
+                 
             })}
-           
+           </div>
         </div>
+        
     )
 
     }

@@ -1,15 +1,13 @@
 //this will contain reusable code styling for both SAVED and Book Results 
 import React from "react";
-// import SaveBtn from "./LayoutCard.js";
 import ViewInfo from "./ViewInfo.js";
 
- export function BookCard ({ 
+ function BookCard ({ 
     title,
     authors,
     image,
     description,
     link,
-    // onClick,
     button
 }) {
     return(
@@ -32,13 +30,6 @@ import ViewInfo from "./ViewInfo.js";
                     link={link}
                  />
             
-                {/* <button onClick={()=> onClick({
-                    title,
-                    authors,
-                    image,
-                    description,
-                    link,
-                })}>Save</button> */}
                {button}
                  </li>
             </ul>
@@ -49,3 +40,4 @@ import ViewInfo from "./ViewInfo.js";
  
 }
 
+export default BookCard;
