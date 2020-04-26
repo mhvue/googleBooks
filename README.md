@@ -23,3 +23,7 @@ You will see your saved book! Here you can click on link to go to Google Books. 
 * Google Books API
 
 
+## To Do:
+* More CSS to style application more
+* Delete button not working correctly; it seems to delete 1st listed book. Need to debug.
+* Add form validation 
