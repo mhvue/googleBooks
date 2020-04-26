@@ -15,7 +15,7 @@ import "./componentStyle.css";
         <div>
             <ul className="data">
                 <li>
-                <img 
+                <img className="booksImg"
                  src={image}
                  alt={title}
                  />
