@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.09bbfe08.chunk.css",
+    "main.js": "/static/js/main.98e1fabc.chunk.js",
+    "main.js.map": "/static/js/main.98e1fabc.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.784c586e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.784c586e.js.map",
+    "static/js/2.9d657b31.chunk.js": "/static/js/2.9d657b31.chunk.js",
+    "static/js/2.9d657b31.chunk.js.map": "/static/js/2.9d657b31.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.bbb137e0a7359a2d27cb57c9495be7c5.js": "/precache-manifest.bbb137e0a7359a2d27cb57c9495be7c5.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.09bbfe08.chunk.css.map": "/static/css/main.09bbfe08.chunk.css.map",
+    "static/js/2.9d657b31.chunk.js.LICENSE.txt": "/static/js/2.9d657b31.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/stackedBooks.999454f5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.784c586e.js",
+    "static/js/2.9d657b31.chunk.js",
+    "static/css/main.09bbfe08.chunk.css",
+    "static/js/main.98e1fabc.chunk.js"
+  ]
+}
