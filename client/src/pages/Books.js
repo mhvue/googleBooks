@@ -52,8 +52,8 @@ class Books extends Component {
         return(
             <div>
                 <Jumbotron />
+                <div className="form-container">
                 <Form>
-                    <div className="form-group">
                     <form className="form-group">
                         <input 
                             value={this.state.title}
@@ -72,8 +72,8 @@ class Books extends Component {
                         <button className="submitBtn"
                         onClick={this.handleFormSubmit}>Submit</button>
                     </form>
-                    </div>
                 </Form>   
+                </div>
                 
                 <div>
                 <h1 className="resultHead">Results</h1>
@@ -98,7 +98,7 @@ class Books extends Component {
                         );
                     })} 
                     </div>) : (
-                    <h3>Nothing to display</h3>
+                    <h3 className="nothingMsg">Nothing to display</h3>
                 )}
                  </div>
             </div>

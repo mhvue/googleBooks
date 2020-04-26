@@ -11,8 +11,38 @@ ul {
 
 .jumbotron {
     font-family: 'Libre Baskerville', serif;
+    width: 68.5%
 }
 
 .navbar {
     background-color: #036588;
+}
+
+.nav-link{
+    text-decoration: underline;
+}
+
+/* media queries */
+@media screen and (max-width:980px){
+    .jumbotron {
+        font-size: 30px;
+        width: 49%;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .jumbotron {
+       width: 100%;
+    }
+}
+
+/* rec'd screen size from http://stephen.io/mediaqueries/#iPhone */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+     .navbar, .jumbotron{
+         width: 500px;
+     }
+     
 }

@@ -10,10 +10,10 @@ function Nav (){
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                     <li className="nav-item active">
-                        <Link className="nav-link" to="/">Search<span className="sr-only">(current)</span></Link>
+                        <Link className="nav-link text-light" to="/">Search for Books<span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/saved">Saved Books</Link>
+                        <Link className="nav-link text-light" to="/saved">View Saved Books</Link>
                     </li>
                     </ul>
                 </div>
