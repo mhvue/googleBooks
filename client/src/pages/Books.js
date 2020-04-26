@@ -14,7 +14,6 @@ class Books extends Component {
     //handleInputChange (input info to searching for a book)
     handleInputChange = event => {
         const {name, value} = event.target
-        // console.log(name, value)
         this.setState({
             [name]: value
         });
@@ -40,9 +39,6 @@ class Books extends Component {
     //onsubmit 
     handleFormSubmit = event => {
         event.preventDefault();
-            // API.getBooks(this.state.title)
-            // .then(res => console.log(res.data.items))
-            // .catch(err => console.log(err))
         if(this.state.title || this.state.author) {
         API.getBooks(this.state.title && this.state.author)
             .then(res => this.setState({

@@ -36,7 +36,6 @@ class SavedBooks extends Component {
     return (
         <div>
             <Jumbotron />
-            
             <h1>Saved Books</h1>
             <div className="bookInfo-container">
             {this.state.savedBooks.map(saved => {
@@ -54,7 +53,6 @@ class SavedBooks extends Component {
                                 </button>} 
                     />
                  )
-                 
             })}
            </div>
         </div>
