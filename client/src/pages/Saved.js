@@ -5,10 +5,8 @@ import API from "../utils/API";
 import "./style.css";
 
 class SavedBooks extends Component {
-
     state = {
         savedBooks:[]
-       
     }
 
     componentDidMount() { 
@@ -25,7 +23,7 @@ class SavedBooks extends Component {
 
 
     handleDelete = (id)=> {
-        // console.log(id)
+        console.log(id)
         API.deleteBook(id)
         .then(res => this.viewAllSaved())
         .catch(err => console.log(err))
@@ -37,10 +35,12 @@ class SavedBooks extends Component {
         <div>
             <Jumbotron />
             <h1 className= "resultHead">Saved Books</h1>
+            {this.state.savedBooks.length ? ( 
             <div className="bookInfo-container">
             {this.state.savedBooks.map(saved => {
                 return (
                     <BookCard 
+                        key={saved._id}
                         id={saved._id}
                         title={saved.title}
                         authors={saved.authors}
@@ -52,9 +52,11 @@ class SavedBooks extends Component {
                                 Delete "{saved.title}"
                                 </button>} 
                     />
-                 )
+                 );
             })}
-           </div>
+           </div>) : (
+               <h3 className="nothingMsg">Nothing Saved</h3>
+           )}
         </div>
         
     )

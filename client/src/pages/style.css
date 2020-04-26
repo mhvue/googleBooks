@@ -18,22 +18,21 @@
 input {
     width: 300px;
     margin-left: 10px;
-    /* position: relative;
-    left: 450px;
-    bottom: 80px; */
 }
 
 .submitBtn{
     margin-left:5px;
-    /* position: relative;
-    left: 455px;
-    bottom: 80px;  */
  }  
 
 .resultHead{
     margin-top: 30px;
     padding: 20px;
 }
+
+.nothingMsg{
+    margin-left: 50px;
+}
+
 
 @media screen and (max-width:980px){
     .form-container{
@@ -52,7 +51,6 @@ input {
         margin-top: 5px;
         width:100px;
      }  
-    
 }
 
 @media screen and (max-width: 768px){

@@ -7,11 +7,13 @@ import "./style.css";
 
 class Books extends Component {
     state = {
-        books: []
-
+        books: [],
+        author: "",
+        title: ""
     }
 
-    //handleInputChange (input info to searching for a book)
+
+    //handleInputChange (input info to search for a book)
     handleInputChange = event => {
         const {name, value} = event.target
         this.setState({
@@ -24,7 +26,6 @@ class Books extends Component {
         // console.log(id)
         const selectBook = this.state.books.find(book => book.id === id)
         const selectBookData = selectBook.volumeInfo
-
          API.saveBooks({
             title: selectBookData.title,
             authors: selectBookData.authors,
@@ -39,7 +40,7 @@ class Books extends Component {
     //onsubmit 
     handleFormSubmit = event => {
         event.preventDefault();
-        if(this.state.title || this.state.author) {
+        if(this.state.title && this.state.author) {
         API.getBooks(this.state.title && this.state.author)
             .then(res => this.setState({
                 books: res.data.items
@@ -53,8 +54,8 @@ class Books extends Component {
             <div>
                 <Jumbotron />
                 <div className="form-container">
-                <Form>
-                    <form className="form-group">
+                <Form> 
+                <form className="form-group">
                         <input 
                             value={this.state.title}
                             name="title"
@@ -70,15 +71,15 @@ class Books extends Component {
                             placeholder="Author"
                         />
                         <button className="submitBtn"
-                        onClick={this.handleFormSubmit}>Submit</button>
-                    </form>
+                         onClick={this.handleFormSubmit}>Submit</button>     
+                     </form> 
+    
                 </Form>   
                 </div>
-                
+
                 <div>
                 <h1 className="resultHead">Results</h1>
                 {this.state.books.length ? (
-                    
                   <div className="bookInfo-container">
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
