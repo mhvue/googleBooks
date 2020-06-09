@@ -2,9 +2,6 @@ import axios from "axios"; //we will be using axios for googlebooks and our db
 
 const key="AIzaSyBqJPwVVWSuyX3s_ZdJorHskPEAMfmgwGg";
 const queryURL= "https://www.googleapis.com/books/v1/volumes?api_key=" + key +"&q="; 
-//const queryURL= "https://www.googleapis.com/books/v1/volumes?q=";
-
-
 
 export default {
     //get all books. passing in bookInfo which will be entered by user

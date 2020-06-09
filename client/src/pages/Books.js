@@ -41,14 +41,19 @@ class Books extends Component {
     //onsubmit 
     handleFormSubmit = event => {
         event.preventDefault();
-        if(this.state.title || this.state.author) {
          API.getBooks(this.state.title || this.state.author)
             .then(res => this.setState({
                 books: res.data.items
             }))
             .catch(err => console.log(err))
-        } 
-        //need to put validation on here 
+
+    //need to put validation on here 
+        if(this.state.title.length || this.state.author.length){
+            this.setState({
+                title: "",
+                author:""
+            })
+        }
     }
     render(){
         return(
