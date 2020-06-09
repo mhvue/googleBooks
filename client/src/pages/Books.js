@@ -33,20 +33,21 @@ class Books extends Component {
             description: selectBookData.description,
             link: selectBookData.infoLink
         })
-        .then(res => console.log(res))
+        .then(res => alert("info added"))
+          
         .catch(err => console.log(err))
     }
 
     //onsubmit 
     handleFormSubmit = event => {
         event.preventDefault();
-        if(this.state.title && this.state.author) {
-        API.getBooks(this.state.title && this.state.author)
+        if(this.state.title || this.state.author) {
+         API.getBooks(this.state.title || this.state.author)
             .then(res => this.setState({
                 books: res.data.items
             }))
             .catch(err => console.log(err))
-        }
+        } 
         //need to put validation on here 
     }
     render(){
@@ -54,7 +55,7 @@ class Books extends Component {
             <div>
                 <Jumbotron />
                 <div className="form-container">
-                <Form> 
+                <Form> <h3 id="startMsg">Enter Title or Author to start</h3>
                 <form className="form-group">
                         <input 
                             value={this.state.title}

@@ -33,7 +33,9 @@ input {
     margin-left: 50px;
 }
 
-
+#startMsg{
+    margin-left: 150px;
+}
 @media screen and (max-width:980px){
     .form-container{
         width: 150px;
