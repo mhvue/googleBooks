@@ -29,6 +29,7 @@ import "./componentStyle.css";
                  /> 
                   <br></br>
                   {button}
+                )
                  </li>
             </ul>
            

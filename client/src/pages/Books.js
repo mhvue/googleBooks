@@ -10,7 +10,7 @@ class Books extends Component {
         books: [],
         author: "",
         title: ""
-    }
+    };
 
 
     //handleInputChange (input info to search for a book)
@@ -19,7 +19,7 @@ class Books extends Component {
         this.setState({
             [name]: value
         });
-    }
+    };
 
     //handleSave (saved a  book to our db)
     handleSave = id => {
@@ -36,25 +36,26 @@ class Books extends Component {
         .then(res => alert("info added"))
           
         .catch(err => console.log(err))
-    }
+    };
 
     //onsubmit 
     handleFormSubmit = event => {
         event.preventDefault();
-         API.getBooks(this.state.title || this.state.author)
+         API.getBooks(this.state.title +  this.state.author)
             .then(res => this.setState({
                 books: res.data.items
             }))
             .catch(err => console.log(err))
 
     //need to put validation on here 
-        if(this.state.title.length || this.state.author.length){
+        if(this.state.title.length && this.state.author.length){
             this.setState({
                 title: "",
                 author:""
             })
         }
-    }
+    };
+
     render(){
         return(
             <div>
@@ -89,6 +90,7 @@ class Books extends Component {
                   <div className="bookInfo-container">
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
+                      // if(bookData.imageLinks.smallThumbnail)
                         return(
                          <BookCard 
                             key={book.id}
@@ -96,7 +98,7 @@ class Books extends Component {
                             authors={bookData.authors}
                             description={bookData.description}
                             link={bookData.infoLink}
-                            image={bookData.imageLinks.smallThumbnail} 
+                           image={bookData.imageLinks.smallThumbnail} 
                             button={<button className="saveBtn"
                                     onClick={() => this.handleSave(book.id)}>
                                     Click to save "{bookData.title}"
