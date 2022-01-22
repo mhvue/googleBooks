@@ -4,7 +4,7 @@ MERN application to search and save books with Google Books API. Check it out: h
 
 <p align ="center"><br><img src="./client/src/images/headerImg.png" width="700px"></p>
 
-Search for a book by entering Title and Author 
+Search for a book by entering Title or Author 
 <p align ="center"><br><img src="./client/src/images/searchImg.png"></p>
 
 Results will show the Title, Author, Description, and link to Google books to purchase. You can also click Save 
