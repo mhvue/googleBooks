@@ -90,7 +90,23 @@ class Books extends Component {
                   <div className="bookInfo-container">
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
-                      // if(bookData.imageLinks.smallThumbnail)
+                        // console.log(bookData.imageLinks === undefined)
+                      if(bookData.imageLinks === undefined){
+                        return(
+                            <BookCard 
+                               key={book.id}
+                               title={bookData.title}
+                               authors={bookData.authors}
+                               description={bookData.description}
+                               link={bookData.infoLink}
+                               image={<h2>Sorry no image</h2>} 
+                               button={<button className="saveBtn"
+                                       onClick={() => this.handleSave(book.id)}>
+                                       Click to save "{bookData.title}"
+                                      </button>} 
+                           />
+                           );
+                      }
                         return(
                          <BookCard 
                             key={book.id}
@@ -98,7 +114,7 @@ class Books extends Component {
                             authors={bookData.authors}
                             description={bookData.description}
                             link={bookData.infoLink}
-                           image={bookData.imageLinks.smallThumbnail} 
+                            image={bookData.imageLinks.smallThumbnail} 
                             button={<button className="saveBtn"
                                     onClick={() => this.handleSave(book.id)}>
                                     Click to save "{bookData.title}"
