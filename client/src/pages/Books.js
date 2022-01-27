@@ -85,15 +85,17 @@ class Books extends Component {
             <div>
                 <Jumbotron />
                 <div className="form-container">
-                <Form> <h3 id="startMsg">Enter Title or Author to start</h3>
+                <Form> <h3 id="startMsg">Enter Title and/or Author</h3>
                 <form className="form-group">
-                        Title:<input 
+                        <span>Title:</span>
+                            <input 
                             value={this.state.title}
                             name="title"
                             onChange={this.handleInputChange}
                             type="text"
                         />
-                        Author:<input
+                        <span>Author:</span>
+                        <input
                             value={this.state.author}
                             name="author"
                             onChange={this.handleInputChange}
