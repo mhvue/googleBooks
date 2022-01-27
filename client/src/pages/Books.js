@@ -45,7 +45,7 @@ class Books extends Component {
         const inputTitle = this.state.title;
 
         //Author only 
-        if(inputTitle.length === 0 & inputAuthor.length > 0){
+        if(inputTitle.length === 0 && inputAuthor.length > 0){
             API.getBooks(inputTitle + "+inauthor:"+ inputAuthor)
             .then(res => this.setState({
                 books: res.data.items
@@ -53,7 +53,8 @@ class Books extends Component {
             .catch(err => console.log(err))
         }
         //Author and Title 
-        else if(inputTitle.length > 0 && inputAuthor.length > 0){
+        else if(inputTitle.length > 0 && inputAuthor.length > 1){
+            console.log("here2")
             API.getBooks(inputTitle + "+inauthor:"+ inputAuthor)
             .then(res => this.setState({
                 books: res.data.items
@@ -61,7 +62,7 @@ class Books extends Component {
             .catch(err => console.log(err))
         }
          //Title only
-        else if(inputTitle && inputAuthor.length === 0){
+        else if(inputTitle.length > 0 && inputAuthor.length === 0){
             API.getBooks(inputTitle)
             .then(res => this.setState({
                 books: res.data.items
