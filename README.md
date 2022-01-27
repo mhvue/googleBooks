@@ -25,5 +25,7 @@ You will see your saved book! Here you can click on link to go to Google Books. 
 
 
 ## To Do:
+* API only searching by title (as of 1/26/2022)
+* Database not working in production
 * More CSS and Bootstrap to style application. 
 * Add form validation 
