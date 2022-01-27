@@ -8,8 +8,8 @@ import "./style.css";
 class Books extends Component {
     state = {
         books: [],
-        author: "",
-        title: ""
+        author: " ",
+        title: " "
     };
 
 
@@ -41,13 +41,36 @@ class Books extends Component {
     //onsubmit 
     handleFormSubmit = event => {
         event.preventDefault();
-         API.getBooks(this.state.title +  this.state.author)
+        const inputAuthor = this.state.author;
+        const inputTitle = this.state.title;
+
+        //Author only 
+        if(inputTitle.length === 0 & inputAuthor.length > 0){
+            API.getBooks(inputTitle + "+inauthor:"+ inputAuthor)
             .then(res => this.setState({
                 books: res.data.items
             }))
             .catch(err => console.log(err))
+        }
+        //Author and Title 
+        else if(inputTitle.length > 0 && inputAuthor.length > 0){
+            API.getBooks(inputTitle + "+inauthor:"+ inputAuthor)
+            .then(res => this.setState({
+                books: res.data.items
+            }))
+            .catch(err => console.log(err))
+        }
+         //Title only
+        else if(inputTitle && inputAuthor.length === 0){
+            API.getBooks(inputTitle)
+            .then(res => this.setState({
+                books: res.data.items
+            }))
+            .catch(err => console.log(err))
+        }
+        
 
-    //need to put validation on here 
+        //need to put validation on here 
         if(this.state.title.length && this.state.author.length){
             this.setState({
                 title: "",
@@ -63,19 +86,17 @@ class Books extends Component {
                 <div className="form-container">
                 <Form> <h3 id="startMsg">Enter Title or Author to start</h3>
                 <form className="form-group">
-                        <input 
+                        Title:<input 
                             value={this.state.title}
                             name="title"
                             onChange={this.handleInputChange}
                             type="text"
-                            placeholder="Title"
                         />
-                        <input
+                        Author:<input
                             value={this.state.author}
                             name="author"
                             onChange={this.handleInputChange}
                             type="text"
-                            placeholder="Author"
                         />
                         <button className="submitBtn"
                          onClick={this.handleFormSubmit}>Submit</button>     
@@ -86,7 +107,7 @@ class Books extends Component {
 
                 <div>
                 <h1 className="resultHead">Results</h1>
-                {this.state.books.length ? (
+                {this.state.books.length >= 0? (
                   <div className="bookInfo-container">
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
