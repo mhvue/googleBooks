@@ -6,8 +6,10 @@
   }
 
 .form-container{
-    margin-left: 150px;
+    /* margin-left: 150px; */
+    width: 50%;
 }
+
 
 .deleteBtn {
     background-color: #49868c;
@@ -16,8 +18,11 @@
 }
 
 input {
-    width: 300px;
-    margin-left: 10px;
+    width: 20%;
+}
+
+span {
+    margin-left: 5%;
 }
 
 .submitBtn{
