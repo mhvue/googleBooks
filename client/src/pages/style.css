@@ -6,8 +6,8 @@
   }
 
 .form-container{
-    /* margin-left: 150px; */
     width: 50%;
+    margin-left: 5%;
 }
 
 
@@ -18,7 +18,7 @@
 }
 
 input {
-    width: 20%;
+    width: 50%;
 }
 
 span {
@@ -26,7 +26,8 @@ span {
 }
 
 .submitBtn{
-    margin-left:5px;
+    display: block;
+    margin-top: 5%;
  }  
 
 .resultHead{
@@ -38,87 +39,4 @@ span {
     margin-left: 50px;
 }
 
-#startMsg{
-    margin-left: 150px;
-}
-@media screen and (max-width:980px){
-    .form-container{
-        width: 150px;
-        margin-left: 80px;
-    }
-    input {
-        width: 300px;
-        margin-bottom: 10px;
-        /* position: relative;
-        left: 450px;
-        bottom: 80px; */
-    }
-    .submitBtn{
-        margin-left:100px;
-        margin-top: 5px;
-        width:100px;
-     }  
-}
 
-@media screen and (max-width: 768px){
-    .form-container{
-        position: relative;
-        left: 150px;
-    }
-    input {
-        width: 300px;
-        margin-bottom: 10px;
-    }
-    .submitBtn{
-        margin-left:100px;
-        margin-top: 5px;
-        width:100px;
-     }  
-     .resultHead, .nothingMsg{
-         text-align:center;
-         color:white;
-     }
-     .bookInfo-container{
-        width: 80%;
-        margin-left: 80px;
-        padding: 10px;
-        background-color: #FFF7F7;
-        text-align: center;
-      }
-}
-
-@media screen and (max-width:640px){
-    .form-container{
-        position: relative;
-        left: 100px;
-    }
-    .bookInfo-container{
-        margin-left: 70px;
-    
-      }
-
-    .data{
-        margin-right: 15px;
-    }
-}
-
-/* rec'd screen size from http://stephen.io/mediaqueries/#iPhone */
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) {
-     .navbar{
-         width: 500px;
-
-     }
-     .form-container{
-        left: 20px;
-    }
-    .bookInfo-container{
-        width: 100%;
-    
-      }
-    
-    .resultHead{
-        margin-left: 150px;
-    }
-}

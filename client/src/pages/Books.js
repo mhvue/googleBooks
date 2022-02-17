@@ -87,14 +87,14 @@ class Books extends Component {
                 <div className="form-container">
                 <Form> <h3 id="startMsg">Enter Title and/or Author</h3>
                 <form className="form-group">
-                        <span>Title:</span>
+                        <p>Title:</p>
                             <input 
                             value={this.state.title}
                             name="title"
                             onChange={this.handleInputChange}
                             type="text"
                         />
-                        <span>Author:</span>
+                        <p>Author:</p>
                         <input
                             value={this.state.author}
                             name="author"
