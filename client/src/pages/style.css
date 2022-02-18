@@ -39,4 +39,9 @@ span {
     margin-left: 50px;
 }
 
+.container-fluid a{
+    justify-content: left;
+}
+
+
 

@@ -110,7 +110,7 @@ class Books extends Component {
 
                 <div>
                 <h1 className="resultHead">Results</h1>
-                {this.state.books.length >= 0? (
+                {this.state.books.length >= 0 ? (
                   <div className="bookInfo-container">
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
