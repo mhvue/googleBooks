@@ -7,13 +7,13 @@ function Nav (){
     <div>
 
         <nav class="navbar navbar-light nav">
-        <div class="container-fluid">
+        <div id="navbarLink" class="container-fluid">
             {/* <a class="navbar-brand" href="#">Navbar</a> */}
             
                 <Link className="navbar-brand" to="/"><h2>Google Books</h2></Link>
                 <Link className="nav-link text-light" to="/">Search for Books</Link>
                 <Link className="nav-link text-light" to="/saved">View Saved Books</Link>
-            
+             
         </div>
         </nav>
     </div>

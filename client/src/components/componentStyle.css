@@ -9,10 +9,17 @@ ul {
     border: 1px solid;
 }
 
-/* .jumbotron {
-    font-family: 'Libre Baskerville', serif;
+#navbarLink {
+    justify-content: center;
+}
+
+.jumbotron {
+    font-family: 'Akaya Telivigala', cursive;
     width:50%;
-} */
+    background-color: #e9ecef;
+    padding: 2em;
+    margin-bottom: 1em;
+}
 
 .navbar {
     background-color: #036588;
