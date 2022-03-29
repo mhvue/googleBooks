@@ -24,7 +24,7 @@ You will see your saved book! Here you can click on link to go to Google Books. 
 * MongoDB 
 
 
-## To Do:
-* Database not working in production
+## To Do (as of 3/29/2022):
 * More CSS and Bootstrap to style application. 
 * Add form validation 
+* Update ReadMe
