@@ -28,6 +28,8 @@ h2 {
 .navbar {
     background-color: #036588;
     color: white;
+    position: fixed;
+    width: 100%;
 }
 
 .nav-link{
@@ -46,7 +48,7 @@ h2 {
 }
 
 h1 {
-    margin-left: 5%;
+    margin: 1.5em 0 0.5em 0;
 }
 
 
