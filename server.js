@@ -18,9 +18,8 @@ if (process.env.NODE_ENV === "production") {
   //require routes
 require("./routes/api")(app);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooksdb", { useNewUrlParser: true, useUnifiedTopology: true });
 // If deployed, use the deployed database. Otherwise use the local database
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooksdb")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooksdb", { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use((req, res, next) => {
     res.send("Welcome to Express");
