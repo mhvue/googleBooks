@@ -44,4 +44,33 @@ span {
 }
 
 
+@media (max-width: 1200px) {
+    .form-container{
+        width: 100%;
+    }
+
+    h1, h3, .form-group {
+        text-align: center;
+    }
+
+    #startMsg, .form-group p, .resultHead, .nothingMsg {
+        color: #fff;
+    }
+
+    .submitBtn {
+        margin: 0 auto;
+    }
+    
+    .bookInfo-container {
+        width: 100%;
+        color: cornsilk;
+    }
+
+    .data {
+        width: 100%;
+    }
+
+
+  }
+
 

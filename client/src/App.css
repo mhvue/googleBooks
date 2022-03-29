@@ -4,7 +4,15 @@ body {
   background-attachment: fixed;
   background-position: right;
   background-size: 50%;
+  /* width: 50% */
   
+}
+
+@media (max-width: 1200px) {
+  body {
+    background-size: 100%;
+  }
+
 }
 
 
