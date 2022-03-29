@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.59d929d6.chunk.css",
-    "main.js": "/static/js/main.ca44a156.chunk.js",
-    "main.js.map": "/static/js/main.ca44a156.chunk.js.map",
+    "main.css": "/static/css/main.7071b6e6.chunk.css",
+    "main.js": "/static/js/main.b499926c.chunk.js",
+    "main.js.map": "/static/js/main.b499926c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.784c586e.js",
     "runtime-main.js.map": "/static/js/runtime-main.784c586e.js.map",
     "static/js/2.9d657b31.chunk.js": "/static/js/2.9d657b31.chunk.js",
     "static/js/2.9d657b31.chunk.js.map": "/static/js/2.9d657b31.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.bb4f239d192e40e8db587b38bf551014.js": "/precache-manifest.bb4f239d192e40e8db587b38bf551014.js",
+    "precache-manifest.bf4433bcc8004e4ad717af496b27eafe.js": "/precache-manifest.bf4433bcc8004e4ad717af496b27eafe.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.59d929d6.chunk.css.map": "/static/css/main.59d929d6.chunk.css.map",
+    "static/css/main.7071b6e6.chunk.css.map": "/static/css/main.7071b6e6.chunk.css.map",
     "static/js/2.9d657b31.chunk.js.LICENSE.txt": "/static/js/2.9d657b31.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/stackedBooks.999454f5.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.784c586e.js",
     "static/js/2.9d657b31.chunk.js",
-    "static/css/main.59d929d6.chunk.css",
-    "static/js/main.ca44a156.chunk.js"
+    "static/css/main.7071b6e6.chunk.css",
+    "static/js/main.b499926c.chunk.js"
   ]
 }
