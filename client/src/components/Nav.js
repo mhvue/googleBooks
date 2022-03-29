@@ -6,8 +6,8 @@ function Nav (){
     return (
     <div>
 
-        <nav class="navbar navbar-light nav">
-        <div class="container-fluid">
+        <nav className="navbar navbar-light nav">
+        <div className="container-fluid">
             {/* <a class="navbar-brand" href="#">Navbar</a> */}
             
                 <Link className="navbar-brand" to="/"><h2>Google Books</h2></Link>

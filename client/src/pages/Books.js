@@ -8,8 +8,8 @@ import "./style.css";
 class Books extends Component {
     state = {
         books: [],
-        author: " ",
-        title: " "
+        author: "",
+        title: ""
     };
 
 
@@ -45,7 +45,7 @@ class Books extends Component {
         const inputTitle = this.state.title;
 
         //Author only 
-        if(inputTitle.length === 0 && inputAuthor.length > 0){
+        if(inputTitle.length === 0 && inputAuthor.length > 1){
             API.getBooks(inputTitle + "+inauthor:"+ inputAuthor)
             .then(res => this.setState({
                 books: res.data.items
@@ -54,7 +54,6 @@ class Books extends Component {
         }
         //Author and Title 
         else if(inputTitle.length > 0 && inputAuthor.length > 1){
-            console.log("here2")
             API.getBooks(inputTitle + "+inauthor:"+ inputAuthor)
             .then(res => this.setState({
                 books: res.data.items
@@ -110,7 +109,7 @@ class Books extends Component {
 
                 <div>
                 <h1 className="resultHead">Results</h1>
-                {this.state.books.length >= 0 ? (
+                {this.state.books.length > 0 ? (
                   <div className="bookInfo-container">
                      {this.state.books.map(book => {
                         const bookData = book.volumeInfo
