@@ -7,12 +7,12 @@ function Nav (){
     <div>
 
         <nav class="navbar navbar-light nav">
-        <div id="navbarLink" class="container-fluid">
+        <div class="container-fluid">
             {/* <a class="navbar-brand" href="#">Navbar</a> */}
             
                 <Link className="navbar-brand" to="/"><h2>Google Books</h2></Link>
-                <Link className="nav-link text-light push-right" to="/">Search for Books</Link>
-                <Link className="nav-link text-light" to="/saved">View Saved Books</Link>
+                <Link className="nav-link  navSecondary push-right" to="/">Search for Books</Link>
+                <Link className="nav-link  navSecondary" to="/saved">View Saved Books</Link>
              
         </div>
         </nav>

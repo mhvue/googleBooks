@@ -2,15 +2,15 @@ ul {
     list-style-type: none;
 }
 
+h2 {
+    color: #fff;
+}
+
 
 .saveBtn{
     background-color: #e77a25;
     font-weight: bold;
     border: 1px solid;
-}
-
-#navbarLink {
-    justify-content: center;
 }
 
 .jumbotron {
@@ -27,11 +27,28 @@ ul {
 
 .navbar {
     background-color: #036588;
+    color: white;
 }
 
 .nav-link{
     text-decoration: none;
 }
+.navSecondary {
+    color: #fff;
+    
+}
+
+.navSecondary:visited {
+    color: white;
+}
+.navSecondary:hover, h2:hover {
+    color: lightgray;
+}
+
+h1 {
+    margin-left: 5%;
+}
+
 
 .push-right {
     margin-left: auto;
