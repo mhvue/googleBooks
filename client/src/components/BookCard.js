@@ -12,7 +12,7 @@ import "./componentStyle.css";
     button
 }) {
     return(
-        <div>
+        <div className="data-book-div">
             <ul className="data">
                 <li>
                 <img className="booksImg"
