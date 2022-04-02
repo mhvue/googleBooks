@@ -64,3 +64,17 @@ h1 {
     }
   
   }
+
+  
+  @media (max-width: 486px) {
+
+    .navbar .container-fluid{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .push-right {
+        margin-left: 0;
+    }
+
+ }   
