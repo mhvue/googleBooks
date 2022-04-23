@@ -67,20 +67,23 @@ class Books extends Component {
                 books: res.data.items
             }))
             .catch(err => console.log(err))
-        }
+        };
         
-
-        //need to put validation on here 
-        if(this.state.title.length && this.state.author.length){
-            this.setState({
-                title: "",
-                author:""
-            })
-        }
+        //clear form
+        this.setState({
+            title: "",
+            author:""
+        });
+        
     };
 
     handleClearSearchResults = event => {
         event.preventDefault();
+
+        if(this.state.books.length === 0){
+            alert("No search results to delete.")
+        }
+
         this.setState({
             books: []
         })

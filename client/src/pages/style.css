@@ -61,12 +61,13 @@ span {
     .submitBtn {
         margin: 0 auto;
     }
+
+    .clearBtn {
+        margin-top: 3%;
+    }
     
     .bookInfo-container {
         width: 100%;
-        /* color: cornsilk; */
-        /* background-color: white; */
-      
     }
 
     .data {
