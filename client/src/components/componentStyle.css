@@ -66,12 +66,16 @@ h1 {
   }
 
   
-  @media (max-width: 486px) {
+  @media (max-width: 500px) {
 
     .navbar .container-fluid{
         display: block;
         margin: 0 auto;
         text-align: center;
+    }
+
+    .navbar {
+        position: relative;
     }
     .push-right {
         margin-left: 0;

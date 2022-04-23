@@ -27,7 +27,8 @@ span {
 
 .submitBtn{
     display: block;
-    margin-top: 5%;
+    margin:5% 0 3% 0;
+    
  }  
 
 .resultHead{

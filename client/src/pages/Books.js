@@ -79,6 +79,13 @@ class Books extends Component {
         }
     };
 
+    handleClearSearchResults = event => {
+        event.preventDefault();
+        this.setState({
+            books: []
+        })
+    };
+
     render(){
         return(
             <div>
@@ -101,7 +108,9 @@ class Books extends Component {
                             type="text"
                         />
                         <button className="submitBtn"
-                         onClick={this.handleFormSubmit}>Submit</button>     
+                         onClick={this.handleFormSubmit}>Submit</button>
+                         <button className="clearBtn"
+                         onClick={this.handleClearSearchResults}>Clear Search Results</button>      
                      </form> 
     
                 </Form>   
