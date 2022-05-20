@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import Jumbotron from "../components/Jumbotron.js";
 import BookCard from "../components/BookCard.js";
 import Form from "../components/Form.js";
+import Modal from "react-bootstrap/Modal";
+import "bootstrap/dist/css/bootstrap.min.css";
 import API from "../utils/API.js"; 
 import "./style.css";
 
@@ -9,7 +11,21 @@ class Books extends Component {
     state = {
         books: [],
         author: "",
-        title: ""
+        title: "",
+        isOpen: false
+    };
+
+    //modal
+    showModal = () => {
+        this.setState({
+            isOpen: true
+        })
+    };
+
+    hideModal = () => {
+        this.setState({
+            isOpen: false,
+        })
     };
 
 
@@ -33,7 +49,7 @@ class Books extends Component {
             description: selectBookData.description,
             link: selectBookData.infoLink
         })
-        .then(res => alert("info added"))
+        .then(res => {this.showModal()})
           
         .catch(err => console.log(err))
     };
@@ -92,6 +108,13 @@ class Books extends Component {
     render(){
         return(
             <div>
+                <Modal show={this.state.isOpen} onHide="true">
+                    <Modal.Header>Saved!</Modal.Header>
+                    <Modal.Body>Successfully Saved.</Modal.Body>
+                    <Modal.Footer>
+                        <button onClick={this.hideModal} className = "cancelBtn">Cancel</button>
+                    </Modal.Footer>
+                </Modal>
                 <Jumbotron />
                 <div className="form-container">
                 <Form> <h3 id="startMsg">Enter Title and/or Author</h3>
