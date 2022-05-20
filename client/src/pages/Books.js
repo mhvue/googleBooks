@@ -28,6 +28,7 @@ class Books extends Component {
         })
     };
 
+        
 
     //handleInputChange (input info to search for a book)
     handleInputChange = event => {
@@ -49,7 +50,7 @@ class Books extends Component {
             description: selectBookData.description,
             link: selectBookData.infoLink
         })
-        .then(res => {this.showModal()})
+        .then(res => this.showModal())
           
         .catch(err => console.log(err))
     };
@@ -90,7 +91,7 @@ class Books extends Component {
             title: "",
             author:""
         });
-        
+
     };
 
     handleClearSearchResults = event => {

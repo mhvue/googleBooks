@@ -1,17 +1,32 @@
 import React, {Component} from "react";
 import Jumbotron from "../components/Jumbotron.js";
 import BookCard from "../components/BookCard.js";
+import Modal from "react-bootstrap/Modal";
 import API from "../utils/API";
 import "./style.css";
 
 class SavedBooks extends Component {
     state = {
-        savedBooks:[]
+        savedBooks:[],
+        isOpen: false,
     }
 
     componentDidMount() { 
         this.viewAllSaved();
     }
+
+    //modal
+    showModal = () => {
+        this.setState({
+            isOpen: true
+        })
+    };
+
+    hideModal = () => {
+        this.setState({
+            isOpen: false
+        })
+    };
 
     viewAllSaved = () => {
         API.viewSaved()
@@ -25,7 +40,10 @@ class SavedBooks extends Component {
     handleDelete = (id)=> {
         console.log(id)
         API.deleteBook(id)
-        .then(res => this.viewAllSaved())
+        .then(res => 
+            this.viewAllSaved(),
+            this.showModal()
+            )
         .catch(err => console.log(err))
     }
 
@@ -33,6 +51,13 @@ class SavedBooks extends Component {
     render() {
     return (
         <div>
+            <Modal show={this.state.isOpen} onHide="true">
+                <Modal.Header>Deleted Saved</Modal.Header>
+                <Modal.Body>Successfully Deleted</Modal.Body>
+                <Modal.Footer>
+                    <button onClick={this.hideModal}>Cancel</button>
+                </Modal.Footer>
+            </Modal>
             <Jumbotron />
             <h1 className= "resultHead">Saved Books</h1>
             {this.state.savedBooks.length ? ( 
