@@ -58,7 +58,7 @@ class SavedBooks extends Component {
                 <Modal.Footer>
                 <Button variant="primary cancelBtn"
                         onClick={this.hideModal}>
-                               Cancel
+                              Ok
                 </Button>
                 </Modal.Footer>
             </Modal>

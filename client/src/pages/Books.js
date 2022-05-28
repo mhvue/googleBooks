@@ -87,17 +87,12 @@ class Books extends Component {
             .catch(err => console.log(err))
         }
 
-        // else if(inputTitle.length === 0 && inputAuthor.length === 0){
-        //     console.log("blank")
-        // }
-        
         //clear form
         this.setState({
             title: "",
             author:""
         });
 
-    
 
     };
 
