@@ -29,8 +29,7 @@ class Books extends Component {
         })
     };
 
-        
-
+    
     //handleInputChange (input info to search for a book)
     handleInputChange = event => {
         const {name, value} = event.target
@@ -63,7 +62,7 @@ class Books extends Component {
         const inputTitle = this.state.title;
 
         //Author only 
-        if(inputTitle.length === 0 && inputAuthor.length > 1){
+        if(inputTitle.length === 0 && inputAuthor.length >= 1){
             API.getBooks(inputTitle + "+inauthor:"+ inputAuthor)
             .then(res => this.setState({
                 books: res.data.items
@@ -71,7 +70,7 @@ class Books extends Component {
             .catch(err => console.log(err))
         }
         //Author and Title 
-        else if(inputTitle.length > 0 && inputAuthor.length > 1){
+        else if(inputTitle.length > 0 && inputAuthor.length >= 1){
             API.getBooks(inputTitle + "+inauthor:"+ inputAuthor)
             .then(res => this.setState({
                 books: res.data.items
@@ -117,7 +116,7 @@ class Books extends Component {
                     <Modal.Footer>
                     <Button variant="primary cancelBtn"
                            onClick={this.hideModal}>
-                               Cancel
+                               Ok
                     </Button>
                     </Modal.Footer>
                 </Modal>
@@ -140,8 +139,7 @@ class Books extends Component {
                             type="text"
                         />
                           <Button 
-                            variant="primary submitBtn" 
-                            className="submitBtn"   
+                            variant="primary submitBtn"  
                             onClick={this.handleFormSubmit}>
                             Submit
                          </Button>

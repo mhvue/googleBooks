@@ -26,8 +26,12 @@ span {
 
 .submitBtn{
     display: block;
-    margin:5% 0 1% 0;
+    margin:2% 0 1% 0;
  }  
+
+  .clearBtn {
+      color: white;
+  }
 
  .saveBtn:hover, .deleteBtn:hover {
      opacity: 0.5;
