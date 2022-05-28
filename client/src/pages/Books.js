@@ -4,6 +4,7 @@ import BookCard from "../components/BookCard.js";
 import Form from "../components/Form.js";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Button from 'react-bootstrap/Button'
 import API from "../utils/API.js"; 
 import "./style.css";
 
@@ -84,13 +85,19 @@ class Books extends Component {
                 books: res.data.items
             }))
             .catch(err => console.log(err))
-        };
+        }
+
+        // else if(inputTitle.length === 0 && inputAuthor.length === 0){
+        //     console.log("blank")
+        // }
         
         //clear form
         this.setState({
             title: "",
             author:""
         });
+
+    
 
     };
 
@@ -113,7 +120,10 @@ class Books extends Component {
                     <Modal.Header>Saved!</Modal.Header>
                     <Modal.Body>Successfully Saved.</Modal.Body>
                     <Modal.Footer>
-                        <button onClick={this.hideModal} className = "cancelBtn">Cancel</button>
+                    <Button variant="primary cancelBtn"
+                           onClick={this.hideModal}>
+                               Cancel
+                    </Button>
                     </Modal.Footer>
                 </Modal>
                 <Jumbotron />
@@ -134,10 +144,17 @@ class Books extends Component {
                             onChange={this.handleInputChange}
                             type="text"
                         />
-                        <button className="submitBtn"
-                         onClick={this.handleFormSubmit}>Submit</button>
-                         <button className="clearBtn"
-                         onClick={this.handleClearSearchResults}>Clear Search Results</button>      
+                          <Button 
+                            variant="primary submitBtn" 
+                            className="submitBtn"   
+                            onClick={this.handleFormSubmit}>
+                            Submit
+                         </Button>
+                          <Button  
+                            variant="info clearBtn"
+                            onClick={this.handleClearSearchResults}>
+                            Clear Search Results
+                          </Button>
                      </form> 
     
                 </Form>   
@@ -159,10 +176,10 @@ class Books extends Component {
                                description={bookData.description}
                                link={bookData.infoLink}
                                image={<h2>Sorry no image</h2>} 
-                               button={<button className="saveBtn"
-                                       onClick={() => this.handleSave(book.id)}>
-                                       Click to save "{bookData.title}"
-                                      </button>} 
+                               button={<Button variant="outline-primary saveBtn"
+                                        onClick={() => this.handleSave(book.id)}>
+                                        Click to save "{bookData.title}"
+                                      </Button>} 
                            />
                            );
                       }
@@ -174,10 +191,10 @@ class Books extends Component {
                             description={bookData.description}
                             link={bookData.infoLink}
                             image={bookData.imageLinks.smallThumbnail} 
-                            button={<button className="saveBtn"
+                            button={<Button variant="outline-primary saveBtn"
                                     onClick={() => this.handleSave(book.id)}>
                                     Click to save "{bookData.title}"
-                                   </button>} 
+                                   </Button>} 
                         />
                         );
                     })} 

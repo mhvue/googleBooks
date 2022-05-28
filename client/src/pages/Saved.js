@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron.js";
 import BookCard from "../components/BookCard.js";
 import Modal from "react-bootstrap/Modal";
 import API from "../utils/API";
+import Button from 'react-bootstrap/Button'
 import "./style.css";
 
 class SavedBooks extends Component {
@@ -43,7 +44,7 @@ class SavedBooks extends Component {
         .then(res => 
             this.viewAllSaved(),
             this.showModal()
-            )
+         )
         .catch(err => console.log(err))
     }
 
@@ -55,7 +56,10 @@ class SavedBooks extends Component {
                 <Modal.Header>Deleted Saved</Modal.Header>
                 <Modal.Body>Successfully Deleted</Modal.Body>
                 <Modal.Footer>
-                    <button onClick={this.hideModal}>Cancel</button>
+                <Button variant="primary cancelBtn"
+                        onClick={this.hideModal}>
+                               Cancel
+                </Button>
                 </Modal.Footer>
             </Modal>
             <Jumbotron />
@@ -72,10 +76,11 @@ class SavedBooks extends Component {
                         image={saved.image}
                         description={saved.description}
                         link={saved.link}
-                        button={<button className="deleteBtn"
+                        button={<Button 
+                                variant="outline-info deleteBtn"
                                 onClick={() => this.handleDelete(saved._id)}>
                                 Delete "{saved.title}"
-                                </button>} 
+                                </Button>} 
                     />
                  );
             })}
